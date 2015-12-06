@@ -1,3 +1,6 @@
+var changeaudio = new Audio("./audio/27568__suonho__memorymoon-space-blaster-plays.wav");
+var startaudio = new Audio("./audio/15348__ch0cchi__bubble-pop.wav");
+
 $(document).ready(function(){
     var timechange = true;
 
@@ -23,6 +26,7 @@ $(document).ready(function(){
     //var breaktime = 0;
     //var sessiontime = 0;
     $(".clock").on("click", function () {
+        startaudio.play();
         breaktime = $("#slider-range").slider("values", 0) * 1000 * 60;
         sessiontime = $("#slider-range").slider("values", 1) * 1000 * 60;
 
@@ -54,6 +58,9 @@ $(document).ready(function(){
 
         timechange = false;
     });
+    Notification.requestPermission();
+    var notification = new Notification("Hi there!");
+    console.log(Notification.permission);
 });
 
 
@@ -68,12 +75,14 @@ function starttimer () {
     }
 
     if (time_remaining <= 0 && session) {
+        changeaudio.play();
         time_remaining = breaktime;
         $("#state").text("Break");
         session = false;
     }
 
     if (time_remaining <= 0 && !session) {
+        changeaudio.play();
         time_remaining = sessiontime;
         $("#state").text("Session");
         session = true;
