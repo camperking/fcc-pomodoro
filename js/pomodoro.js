@@ -1,5 +1,6 @@
 var changeaudio = new Audio("./audio/27568__suonho__memorymoon-space-blaster-plays.wav");
 var startaudio = new Audio("./audio/15348__ch0cchi__bubble-pop.wav");
+var session = true;
 
 $(document).ready(function(){
     var timechange = true;
