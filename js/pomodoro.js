@@ -55,7 +55,9 @@ $(document).ready(function(){
 
         timechange = false;
     });
-
+    Notification.requestPermission();
+    //var notification = new Notification("Hi there!");
+    //console.log(Notification.permission);
 });
 
 
@@ -71,6 +73,7 @@ function starttimer () {
 
     if (time_remaining <= 0 && session) {
         changeaudio.play();
+        var notification = new Notification("Pomodoro: Break!");
         time_remaining = breaktime;
         $("#state").text("Break");
         session = false;
@@ -78,6 +81,7 @@ function starttimer () {
 
     if (time_remaining <= 0 && !session) {
         changeaudio.play();
+        var notification = new Notification("Pomodoro: Session!");
         time_remaining = sessiontime;
         $("#state").text("Session");
         session = true;
