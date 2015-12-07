@@ -55,9 +55,7 @@ $(document).ready(function(){
 
         timechange = false;
     });
-    Notification.requestPermission();
-    var notification = new Notification("Hi there!");
-    console.log(Notification.permission);
+
 });
 
 
