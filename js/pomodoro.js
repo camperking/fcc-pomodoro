@@ -22,9 +22,6 @@ $(document).ready(function(){
 
     var timer;
     var running = false;
-    var timeremaining;
-    //var breaktime = 0;
-    //var sessiontime = 0;
     $(".clock").on("click", function () {
         startaudio.play();
         breaktime = $("#slider-range").slider("values", 0) * 1000 * 60;
